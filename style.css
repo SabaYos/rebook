@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+nav {
+    background-color: #333;
+    padding: 10px;
+}
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+.section {
+    display: none;
+}
+.section.active {
+    display: block;
+}
+h1, h2 {
+    text-align: center;
+}
+/* Customer View Styling */
+#book-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.book-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    border-radius: 5px;
+}
+.book-card img {
+    max-width: 100%;
+    height: auto;
+}
+.book-card h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+.book-card p {
+    font-size: 0.9em;
+    color: #555;
+}
+irrespective of the styling .book-card .price {
+    font-weight: bold;
+    color: #2a2;
+}
+#request-form {
+    max-width: 400px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#request-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9em;
+}
+#request-form input, #request-form select {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#request-form button {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#request-form button:hover {
+    background-color: #555;
+}
+/* Seller View Styling */
+#add-book-form {
+    max-width: 400px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#add-book-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9em;
+}
+#add-book-form input, #add-book-form textarea {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#add-book-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+#add-book-form button {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#add-book-form button:hover {
+    background-color: #555;
+}
+#request-list {
+    margin-top: 20px;
+}
+.request-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+.request-table th, .request-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+.request-table th {
+    background-color: #f4f4f4;
+}
+.request-table button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.request-table .accept-btn {
+    background-color: #2a2;
+    color: white;
+}
+.request-table .ignore-btn {
+    background-color: #c33;
+    color: white;
+}
+.request-table button:hover {
+    opacity: 0.9;
+}
