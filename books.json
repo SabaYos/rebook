@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "title": "Sample Book",
+        "description": "A used novel in good condition.",
+        "price": 5.99,
+        "image": "https://via.placeholder.com/150"
+    }
+]
