@@ -4,139 +4,139 @@
         "title": "كليلة ودمنة",
         "description": "نسخة ورقية مستعملة، بعض الصفحات مطوية، حالة جيدة.",
         "price": 3.50,
-        "image": "https://via.placeholder.com/150?text=Kalila"
+        "image": "images/kalila.jpg"
     },
     {
         "id": 2,
         "title": "ألف ليلة وليلة",
         "description": "كتاب مستعمل، غلاف باهت قليلاً، لا توجد علامات على الصفحات.",
         "price": 5.00,
-        "image": "https://via.placeholder.com/150?text=1001Nights"
+        "image": "images/alflaila.jpg"
     },
     {
         "id": 3,
         "title": "الأيام",
         "description": "نسخة ورقية لطه حسين، حالة جيدة، بعض التآكل على الحواف.",
         "price": 4.00,
-        "image": "https://via.placeholder.com/150?text=AlAyam"
+        "image": "images/alayam.jpg"
     },
     {
         "id": 4,
-        "title": "قصر الكلام",
+        "title": " يسمعون حسيسها",
         "description": "رواية لأيمن العتوم، مستعملة، غلاف سليم، صفحات نظيفة.",
         "price": 6.00,
-        "image": "https://via.placeholder.com/150?text=QasrAlKalam"
+        "image": "images/hasesaha.jpg"
     },
     {
         "id": 5,
         "title": "البخلاء",
         "description": "نسخة مستعملة للجاحظ، بعض الشخبطة الخفيفة، حالة مقبولة.",
         "price": 2.50,
-        "image": "https://via.placeholder.com/150?text=AlBukhala"
+        "image": "images/albokhalaajpg.jpg"
     },
     {
         "id": 6,
         "title": "تاريخ الأدب العربي",
         "description": "كتاب لأحمد حسن الزيات، مستعمل، غلاف ممزق قليلاً، صفحات كاملة.",
         "price": 4.75,
-        "image": "https://via.placeholder.com/150?text=AdabArabi"
+        "image": "images/tareekh.jpg"
     },
     {
         "id": 7,
         "title": "ديوان المتنبي",
         "description": "مجموعة شعرية مستعملة، غلاف بسيط، بعض الصفحات مشدودة.",
         "price": 3.75,
-        "image": "https://via.placeholder.com/150?text=Mutanabbi"
+        "image": "images/almotanabi.jpg"
     },
     {
         "id": 8,
         "title": "قصر الحمراء",
         "description": "رواية لناجي زين الدين، مستعملة، حالة جيدة، لا علامات.",
         "price": 5.50,
-        "image": "https://via.placeholder.com/150?text=QasrHamra"
+        "image": "images/alhamraa.jpg"
     },
     {
         "id": 9,
         "title": "موسم الهجرة إلى الشمال",
         "description": "رواية للطيب صالح، نسخة ورقية، غلاف مهترئ قليلاً.",
         "price": 4.25,
-        "image": "https://via.placeholder.com/150?text=MawsimHijra"
+        "image": "images/mawsem.jpg"
     },
     {
         "id": 10,
         "title": "ذاكرة الجسد",
         "description": "رواية لأحلام مستغانمي، مستعملة، صفحات نظيفة، غلاف مطوي.",
         "price": 6.50,
-        "image": "https://via.placeholder.com/150?text=DhakiratJasad"
+        "image": "images/thakerataljasad.jpg"
     },
     {
         "id": 11,
         "title": "ديوان محمود درويش",
         "description": "شعر، نسخة مستعملة، بعض الملاحظات بالقلم، حالة جيدة.",
         "price": 5.25,
-        "image": "https://via.placeholder.com/150?text=Darwish"
+        "image": "images/darweesh.jpg"
     },
     {
         "id": 12,
         "title": "النحو الواضح",
         "description": "كتاب دراسي، مستعمل، غلاف ممزق، صفحات سليمة.",
         "price": 2.00,
-        "image": "https://via.placeholder.com/150?text=NahwWadih"
+        "image": "images/naho.jpg"
     },
     {
         "id": 13,
         "title": "رجال في الشمس",
         "description": "رواية لغسان كنفاني، مستعملة، حالة مقبولة، بعض التآكل.",
         "price": 3.25,
-        "image": "https://via.placeholder.com/150?text=RijalShams"
+        "image": "images/rejalfeashams.jpg"
     },
     {
         "id": 14,
         "title": "تفسير الجلالين",
         "description": "كتاب ديني، نسخة ورقية مستعملة، غلاف باهت، صفحات نظيفة.",
         "price": 4.50,
-        "image": "https://via.placeholder.com/150?text=Jalalayn"
+        "image": "images/tafseer.jpg"
     },
     {
         "id": 15,
         "title": "زمن الخيول البيضاء",
         "description": "رواية لإبراهيم نصرالله، مستعملة، غلاف سليم، بعض الخدوش.",
         "price": 6.25,
-        "image": "https://via.placeholder.com/150?text=ZamanKhuyul"
+        "image": "images/zaman.jpg"
     },
     {
         "id": 16,
         "title": "العقد الفريد",
         "description": "كتاب لابن عبد ربه، مستعمل، صفحات مشدودة، حالة جيدة.",
         "price": 5.00,
-        "image": "https://via.placeholder.com/150?text=AqdFarid"
+        "image": "images/alaqdalfareed.jpg"
     },
     {
         "id": 17,
         "title": "ثلاثية غرناطة",
         "description": "رواية لرضوى عاشور، مستعملة، غلاف مهترئ، صفحات كاملة.",
         "price": 6.75,
-        "image": "https://via.placeholder.com/150?text=Thulathiyya"
+        "image": "images/gernata.jpg"
     },
     {
         "id": 18,
         "title": "مقامات الحريري",
         "description": "نسخة مستعملة، بعض الصفحات مطوية، حالة مقبولة.",
         "price": 3.00,
-        "image": "https://via.placeholder.com/150?text=MaqamatHariri"
+        "image": "images/maqamat.jpg"
     },
     {
         "id": 19,
         "title": "أولاد حارتنا",
         "description": "رواية لنجيب محفوظ، مستعملة، غلاف ممزق قليلاً، صفحات نظيفة.",
         "price": 5.75,
-        "image": "https://via.placeholder.com/150?text=AwladHaratna"
+        "image": "images/awladhartna.jpg"
     },
     {
         "id": 20,
         "title": "البلاغة الواضحة",
         "description": "كتاب دراسي، مستعمل، بعض الشخبطة، حالة جيدة.",
         "price": 2.75,
-        "image": "https://via.placeholder.com/150?text=BalaghaWadiha"
+        "image": "images/albalagaa.jpg"
     }
 ]
