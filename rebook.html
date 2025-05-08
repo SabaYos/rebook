@@ -29,10 +29,18 @@
                 <label>
                     Location:
                     <select name="location" required>
-                        <option value="Amman">Amman</option>
-                        <option value="Irbid">Irbid</option>
-                        <option value="Zarqa">Zarqa</option>
-                        <option value="Aqaba">Aqaba</option>
+                        <option value="Amman">عمان - Amman</option>
+                        <option value="Irbid">إربد - Irbid</option>
+                        <option value="Zarqa">الزرقاء - Zarqa</option>
+                        <option value="Balqa">البلقاء - Balqa</option>
+                        <option value="Karak">الكرك - Karak</option>
+                        <option value="Ma'an">معان - Ma'an</option>
+                        <option value="Mafraq">المفرق - Mafraq</option>
+                        <option value="Tafila">الطفيلة - Tafila</option>
+                        <option value="Aqaba">العقبة - Aqaba</option>
+                        <option value="Jerash">جرش - Jerash</option>
+                        <option value="Ajloun">عجلون - Ajloun</option>
+                        <option value="Madaba">مأدبا - Madaba</option>
                     </select>
                 </label>
                 <label>
@@ -60,11 +68,32 @@
                 </label>
                 <label>
                     Image URL (Optional):
-                    <input type="text" name="image" placeholder="e.g., https://via.placeholder.com/150">
+                    <input type="text" name="image" placeholder="e.g., images/book.jpg">
                 </label>
+                <p class="note">Note: New books are saved in browser storage and visible until cleared.</p>
                 <button type="submit">Add Book</button>
             </form>
             <h2>Incoming Requests</h2>
+            <div id="location-filter">
+                <label>
+                    Filter by City:
+                    <select id="city-filter" onchange="loadRequests()">
+                        <option value="">All Cities</option>
+                        <option value="Amman">عمان - Amman</option>
+                        <option value="Irbid">إربد - Irbid</option>
+                        <option value="Zarqa">الزرقاء - Zarqa</option>
+                        <option value="Balqa">البلقاء - Balqa</option>
+                        <option value="Karak">الكرك - Karak</option>
+                        <option value="Ma'an">معان - Ma'an</option>
+                        <option value="Mafraq">المفرق - Mafraq</option>
+                        <option value="Tafila">الطفيلة - Tafila</option>
+                        <option value="Aqaba">العقبة - Aqaba</option>
+                        <option value="Jerash">جرش - Jerash</option>
+                        <option value="Ajloun">عجلون - Ajloun</option>
+                        <option value="Madaba">مأدبا - Madaba</option>
+                    </select>
+                </label>
+            </div>
             <div id="request-list">
                 <table class="request-table">
                     <thead>
@@ -99,8 +128,13 @@
             try {
                 const response = await fetch('books.json');
                 const books = await response.json();
-                // Merge with localStorage books
+                // Merge with localStorage books, ensuring unique IDs
                 let localBooks = JSON.parse(localStorage.getItem('books') || '[]');
+                const maxJsonId = Math.max(...books.map(book => book.id), 0);
+                localBooks = localBooks.map((book, index) => ({
+                    ...book,
+                    id: maxJsonId + index + 1
+                }));
                 const allBooks = [...books, ...localBooks];
                 displayBooks(allBooks);
             } catch (error) {
@@ -111,11 +145,16 @@
                         title: "كليلة ودمنة",
                         description: "نسخة ورقية مستعملة، بعض الصفحات مطوية، حالة جيدة.",
                         price: 3.50,
-                        image: "https://via.placeholder.com/150?text=Kalila"
+                        image: "images/book1.jpg"
                     }
                 ];
-                // Merge with localStorage books
+                // Merge with localStorage books, ensuring unique IDs
                 let localBooks = JSON.parse(localStorage.getItem('books') || '[]');
+                const maxJsonId = Math.max(...fallbackBooks.map(book => book.id), 0);
+                localBooks = localBooks.map((book, index) => ({
+                    ...book,
+                    id: maxJsonId + index + 1
+                }));
                 const allBooks = [...fallbackBooks, ...localBooks];
                 displayBooks(allBooks);
             }
@@ -165,7 +204,7 @@
             e.preventDefault();
             const formData = new FormData(this);
             const newBook = {
-                id: Date.now(), // Unique ID based on timestamp
+                id: Date.now(), // Temporary ID, reassigned in loadBooks
                 title: formData.get('title'),
                 description: formData.get('description'),
                 price: parseFloat(formData.get('price')),
@@ -187,9 +226,13 @@
         function loadRequests() {
             const requestTableBody = document.getElementById('request-table-body');
             requestTableBody.innerHTML = '';
+            const selectedCity = document.getElementById('city-filter').value;
             const requests = JSON.parse(localStorage.getItem('requests') || '[]');
             requests.forEach(request => {
                 const row = document.createElement('tr');
+                if (selectedCity && request.location === selectedCity) {
+                    row.className = 'highlight';
+                }
                 row.innerHTML = `
                     <td>${request.bookId}</td>
                     <td>${request.customerName}</td>
