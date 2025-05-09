@@ -4,80 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReBook - Used Book Exchange</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <a href="#" onclick="showSection('customer')">Customer View</a>
-        <a href="#" onclick="showSection('seller')">Seller View</a>
-    </nav>
-    <div class="container">
-        <div id="customer" class="section active">
-            <h1>Customer View</h1>
-            <h2>Available Books</h2>
-            <div id="book-list"></div>
-            <h2>Request a Book</h2>
-            <form id="request-form">
-                <label>
-                    Name:
-                    <input type="text" name="name" required>
-                </label>
-                <label>
-                    Contact (Email/Phone):
-                    <input type="text" name="contact" required>
-                </label>
-                <label>
-                    Location:
-                    <select name="location" required>
-                        <option value="Amman">عمان - Amman</option>
-                        <option value="Irbid">إربد - Irbid</option>
-                        <option value="Zarqa">الزرقاء - Zarqa</option>
-                        <option value="Balqa">البلقاء - Balqa</option>
-                        <option value="Karak">الكرك - Karak</option>
-                        <option value="Ma'an">معان - Ma'an</option>
-                        <option value="Mafraq">المفرق - Mafraq</option>
-                        <option value="Tafila">الطفيلة - Tafila</option>
-                        <option value="Aqaba">العقبة - Aqaba</option>
-                        <option value="Jerash">جرش - Jerash</option>
-                        <option value="Ajloun">عجلون - Ajloun</option>
-                        <option value="Madaba">مأدبا - Madaba</option>
-                    </select>
-                </label>
-                <label>
-                    Book ID:
-                    <input type="number" name="bookId" required>
-                </label>
-                <button type="submit">Submit Request</button>
-            </form>
-        </div>
-        <div id="seller" class="section">
-            <h1>Seller View</h1>
-            <h2>Add New Book</h2>
-            <form id="add-book-form">
-                <label>
-                    Title:
-                    <input type="text" name="title" required>
-                </label>
-                <label>
-                    Description:
-                    <textarea name="description" required></textarea>
-                </label>
-                <label>
-                    Price (JOD):
-                    <input type="number" name="price" step="0.01" min="0" required>
-                </label>
-                <label>
-                    Image URL (Optional):
-                    <input type="text" name="image" placeholder="e.g., images/book.jpg">
-                </label>
-                <p class="note">Note: New books are saved in browser storage and visible until cleared.</p>
-                <button type="submit">Add Book</button>
-            </form>
-            <h2>Incoming Requests</h2>
-            <div id="location-filter">
-                <label>
-                    Filter by City:
-                    <select id="city-filter" onchange="loadRequests()">
+        <nav>
+            <div class="logo">
+                <i class="fas fa-book"></i> ReBook
+            </div>
+            <div class="nav-links">
+                <a href="#" class="active" onclick="showSection('customer')">Browse Books</a>
+                <a href="#" onclick="showSection('seller')">Sell Books</a>
+            </div>
+        </nav>
+    
+        <div class="container">
+            <div id="customer" class="section active">
+                <div class="page-header">
+                    <h1>Find Used Books</h1>
+                    <p>Browse our collection of pre-loved books at affordable prices</p>
+                </div>
+    
+                <div class="book-grid" id="book-list">
+                    <!-- Books will be loaded here -->
+                </div>
+    
+                <div class="form-container">
+                    <h2 class="form-title">Request a Book</h2>
+                    <form id="request-form">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="contact">Contact (Email/Phone)</label>
+                            <input type="text" id="contact" name="contact" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="location">Location</label>
+                            <select id="location" name="location" class="form-control" required>
+                                <option value="Amman">عمان - Amman</option>
+                                <option value="Irbid">إربد - Irbid</option>
+                                <option value="Zarqa">الزرقاء - Zarqa</option>
+                                <option value="Balqa">البلقاء - Balqa</option>
+                                <option value="Karak">الكرك - Karak</option>
+                                <option value="Ma'an">معان - Ma'an</option>
+                                <option value="Mafraq">المفرق - Mafraq</option>
+                                <option value="Tafila">الطفيلة - Tafila</option>
+                                <option value="Aqaba">العقبة - Aqaba</option>
+                                <option value="Jerash">جرش - Jerash</option>
+                                <option value="Ajloun">عجلون - Ajloun</option>
+                                <option value="Madaba">مأدبا - Madaba</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="bookId">Book ID</label>
+                            <input type="number" id="bookId" name="bookId" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-block">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+    
+            <div id="seller" class="section">
+                <div class="page-header">
+                    <h1>Sell Your Books</h1>
+                    <p>List your used books and connect with potential buyers</p>
+                </div>
+    
+                <div class="form-container">
+                    <h2 class="form-title">Add New Book</h2>
+                    <form id="add-book-form">
+                        <div class="form-group">
+                            <label class="form-label" for="title">Title</label>
+                            <input type="text" id="title" name="title" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="description">Description</label>
+                            <textarea id="description" name="description" class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="price">Price (JOD)</label>
+                            <input type="number" id="price" name="price" step="0.01" min="0" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="image">Image URL (Optional)</label>
+                            <input type="text" id="image" name="image" class="form-control" placeholder="e.g., images/book.jpg">
+                            <p class="form-note">Leave blank for default image</p>
+                        </div>
+                        <button type="submit" class="btn btn-block">Add Book</button>
+                    </form>
+                </div>
+    
+                <div class="page-header">
+                    <h2>Incoming Book Requests</h2>
+                </div>
+    
+                <div class="filter-container">
+                    <select id="city-filter" class="form-control" onchange="loadRequests()">
                         <option value="">All Cities</option>
                         <option value="Amman">عمان - Amman</option>
                         <option value="Irbid">إربد - Irbid</option>
@@ -92,180 +117,307 @@
                         <option value="Ajloun">عجلون - Ajloun</option>
                         <option value="Madaba">مأدبا - Madaba</option>
                     </select>
-                </label>
-            </div>
-            <div id="request-list">
-                <table class="request-table">
-                    <thead>
-                        <tr>
-                            <th>Book ID</th>
-                            <th>Customer Name</th>
-                            <th>Contact</th>
-                            <th>Location</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="request-table-body"></tbody>
-                </table>
+                </div>
+    
+                <div class="table-container">
+                    <table class="request-table">
+                        <thead>
+                            <tr>
+                                <th>Book ID</th>
+                                <th>Customer</th>
+                                <th>Contact</th>
+                                <th>Location</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="request-table-body">
+                            <!-- Requests will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-    <script>
-        // Show/hide sections
-        function showSection(sectionId) {
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(sectionId).classList.add('active');
-            if (sectionId === 'seller') {
-                loadRequests();
+    
+        <footer>
+            <div class="footer-content">
+                &copy; 2025 ReBook - Used Book Exchange | Connect with us on social media
+            </div>
+        </footer>
+    
+        <script>
+            let allBooks = []; // Store books globally for validation
+    
+            // Show/hide sections
+            function showSection(sectionId) {
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(sectionId).classList.add('active');
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                event.target.classList.add('active');
+                
+                if (sectionId === 'seller') {
+                    loadRequests();
+                }
             }
-        }
-
-        // Load books from books.json
-        async function loadBooks() {
-            try {
-                const response = await fetch('books.json');
-                const books = await response.json();
-                // Merge with localStorage books, ensuring unique IDs
-                let localBooks = JSON.parse(localStorage.getItem('books') || '[]');
-                const maxJsonId = Math.max(...books.map(book => book.id), 0);
-                localBooks = localBooks.map((book, index) => ({
-                    ...book,
-                    id: maxJsonId + index + 1
-                }));
-                const allBooks = [...books, ...localBooks];
-                displayBooks(allBooks);
-            } catch (error) {
-                console.error('Error loading books:', error);
-                const fallbackBooks = [
-                    {
-                        id: 1,
-                        title: "كليلة ودمنة",
-                        description: "نسخة ورقية مستعملة، بعض الصفحات مطوية، حالة جيدة.",
-                        price: 3.50,
-                        image: "images/book1.jpg"
+    
+            // Load books from books.json
+            async function loadBooks() {
+                try {
+                    const response = await fetch('books.json');
+                    const books = await response.json();
+                    // Merge with localStorage books, ensuring unique IDs
+                    let localBooks = JSON.parse(localStorage.getItem('books') || '[]');
+                    const maxJsonId = Math.max(...books.map(book => book.id), 0);
+                    localBooks = localBooks.map((book, index) => ({
+                        ...book,
+                        id: maxJsonId + index + 1
+                    }));
+                    allBooks = [...books, ...localBooks];
+                    displayBooks(allBooks);
+                } catch (error) {
+                    console.error('Error loading books:', error);
+                    const fallbackBooks = [
+                        {
+                            id: 1,
+                            title: "كليلة ودمنة",
+                            description: "نسخة ورقية مستعملة، بعض الصفحات مطوية، حالة جيدة.",
+                            price: 3.50,
+                            image: "images/book1.jpg"
+                        },
+                        {
+                            id: 2,
+                            title: "The Great Gatsby",
+                            description: "Classic novel in good condition, slight wear on cover.",
+                            price: 4.75,
+                            image: "https://via.placeholder.com/150"
+                        },
+                        {
+                            id: 3,
+                            title: "Harry Potter and the Philosopher's Stone",
+                            description: "First edition paperback with minimal highlighting.",
+                            price: 6.25,
+                            image: "https://via.placeholder.com/150"
+                        }
+                    ];
+                    let localBooks = JSON.parse(localStorage.getItem('books') || '[]');
+                    const maxJsonId = Math.max(...fallbackBooks.map(book => book.id), 0);
+                    localBooks = localBooks.map((book, index) => ({
+                        ...book,
+                        id: maxJsonId + index + 1
+                    }));
+                    allBooks = [...fallbackBooks, ...localBooks];
+                    displayBooks(allBooks);
+                }
+            }
+    
+            // Display books in Customer View
+            function displayBooks(books) {
+                const bookList = document.getElementById('book-list');
+                bookList.innerHTML = '';
+                
+                if (books.length === 0) {
+                    bookList.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <p class="empty-text">No books available right now.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                books.forEach(book => {
+                    const bookCard = document.createElement('div');
+                    bookCard.className = 'book-card';
+                    bookCard.innerHTML = `
+                        <div class="book-image">
+                            <img src="${book.image || 'https://via.placeholder.com/150'}" alt="${book.title}">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">${book.title}</h3>
+                            <p class="book-description">${book.description}</p>
+                            <div class="book-meta">
+                                <span class="book-price">${book.price.toFixed(2)} JOD</span>
+                                <span class="book-id">ID: ${book.id}</span>
+                            </div>
+                        </div>
+                    `;
+                    bookList.appendChild(bookCard);
+                });
+            }
+    
+            // Handle request form submission (Customer View)
+            document.getElementById('request-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                const bookId = parseInt(formData.get('bookId'));
+                const name = formData.get('name').trim();
+                const contact = formData.get('contact').trim();
+    
+                // Validate inputs
+                if (!name) {
+                    alert('Please enter a valid name.');
+                    return;
+                }
+                if (!contact) {
+                    alert('Please enter a valid contact (email or phone).');
+                    return;
+                }
+                if (!allBooks.some(book => book.id === bookId)) {
+                    alert('Invalid Book ID. Please enter a valid Book ID from the available books.');
+                    return;
+                }
+    
+                const request = {
+                    id: Date.now(),
+                    bookId,
+                    customerName: name,
+                    contact,
+                    location: formData.get('location'),
+                    status: 'pending'
+                };
+    
+                let requests = JSON.parse(localStorage.getItem('requests') || '[]');
+                requests.push(request);
+                localStorage.setItem('requests', JSON.stringify(requests));
+    
+                alert('Request submitted successfully!');
+                this.reset();
+            });
+    
+            // Handle add book form submission (Seller View)
+            document.getElementById('add-book-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                const title = formData.get('title').trim();
+                const description = formData.get('description').trim();
+                const price = parseFloat(formData.get('price'));
+    
+                // Validate inputs
+                if (!title) {
+                    alert('Please enter a valid book title.');
+                    return;
+                }
+                if (description.length < 5) {
+                    alert('Description must be at least 5 characters long.');
+                    return;
+                }
+                if (isNaN(price) || price <= 0) {
+                    alert('Price must be a positive number.');
+                    return;
+                }
+    
+                const newBook = {
+                    id: Date.now(), // Temporary ID, reassigned in loadBooks
+                    title,
+                    description,
+                    price,
+                    image: formData.get('image') || 'https://via.placeholder.com/150'
+                };
+    
+                let books = JSON.parse(localStorage.getItem('books') || '[]');
+                books.push(newBook);
+                localStorage.setItem('books', JSON.stringify(books));
+    
+                alert('Book added successfully!');
+                this.reset();
+    
+                // Refresh Customer View to show new book
+                loadBooks();
+            });
+    
+            // Load and display requests in Seller View
+            function loadRequests() {
+                const requestTableBody = document.getElementById('request-table-body');
+                requestTableBody.innerHTML = '';
+                const selectedCity = document.getElementById('city-filter').value;
+                const requests = JSON.parse(localStorage.getItem('requests') || '[]');
+                
+                if (requests.length === 0) {
+                    requestTableBody.innerHTML = `
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 2rem;">
+                                <div class="empty-icon">
+                                    <i class="fas fa-inbox"></i>
+                                </div>
+                                <p class="empty-text">No requests received yet.</p>
+                            </td>
+                        </tr>
+                    `;
+                    return;
+                }
+                
+                const filteredRequests = selectedCity ? 
+                    requests.filter(request => request.location === selectedCity) : 
+                    requests;
+                
+                if (filteredRequests.length === 0) {
+                    requestTableBody.innerHTML = `
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 2rem;">
+                                <div class="empty-icon">
+                                    <i class="fas fa-filter"></i>
+                                </div>
+                                <p class="empty-text">No requests match your filter.</p>
+                            </td>
+                        </tr>
+                    `;
+                    return;
+                }
+                
+                filteredRequests.forEach(request => {
+                    const row = document.createElement('tr');
+                    if (selectedCity && request.location === selectedCity) {
+                        row.classList.add('highlight');
                     }
-                ];
-                // Merge with localStorage books, ensuring unique IDs
-                let localBooks = JSON.parse(localStorage.getItem('books') || '[]');
-                const maxJsonId = Math.max(...fallbackBooks.map(book => book.id), 0);
-                localBooks = localBooks.map((book, index) => ({
-                    ...book,
-                    id: maxJsonId + index + 1
-                }));
-                const allBooks = [...fallbackBooks, ...localBooks];
-                displayBooks(allBooks);
+                    
+                    // Status badge class
+                    let statusBadgeClass = 'badge-pending';
+                    if (request.status === 'accepted') statusBadgeClass = 'badge-accepted';
+                    if (request.status === 'ignored') statusBadgeClass = 'badge-ignored';
+                    
+                    row.innerHTML = `
+                        <td>${request.bookId}</td>
+                        <td>${request.customerName}</td>
+                        <td>${request.contact}</td>
+                        <td>${request.location}</td>
+                        <td><span class="badge ${statusBadgeClass}">${request.status}</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-sm btn-accept" onclick="updateRequestStatus(${request.id}, 'accepted')">Accept</button>
+                                <button class="btn btn-sm btn-ignore" onclick="updateRequestStatus(${request.id}, 'ignored')">Ignore</button>
+                            </div>
+                        </td>
+                    `;
+                    requestTableBody.appendChild(row);
+                });
             }
-        }
-
-        // Display books in Customer View
-        function displayBooks(books) {
-            const bookList = document.getElementById('book-list');
-            bookList.innerHTML = '';
-            books.forEach(book => {
-                const bookCard = document.createElement('div');
-                bookCard.className = 'book-card';
-                bookCard.innerHTML = `
-                    <img src="${book.image || 'https://via.placeholder.com/150'}" alt="${book.title}">
-                    <h3>${book.title}</h3>
-                    <p>${book.description}</p>
-                    <p class="price">${book.price.toFixed(2)} JOD</p>
-                    <p>Book ID: ${book.id}</p>
-                `;
-                bookList.appendChild(bookCard);
+    
+            // Update request status
+            function updateRequestStatus(requestId, status) {
+                let requests = JSON.parse(localStorage.getItem('requests') || '[]');
+                requests = requests.map(request => {
+                    if (request.id === requestId) {
+                        return { ...request, status };
+                    }
+                    return request;
+                });
+                localStorage.setItem('requests', JSON.stringify(requests));
+                loadRequests();
+                alert(`Request ${status}!`);
+            }
+    
+            // Initialize Customer View
+            document.addEventListener('DOMContentLoaded', () => {
+                loadBooks();
             });
-        }
-
-        // Handle request form submission (Customer View)
-        document.getElementById('request-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            const request = {
-                id: Date.now(),
-                bookId: parseInt(formData.get('bookId')),
-                customerName: formData.get('name'),
-                contact: formData.get('contact'),
-                location: formData.get('location'),
-                status: 'pending'
-            };
-
-            let requests = JSON.parse(localStorage.getItem('requests') || '[]');
-            requests.push(request);
-            localStorage.setItem('requests', JSON.stringify(requests));
-
-            alert('Request submitted successfully!');
-            this.reset();
-        });
-
-        // Handle add book form submission (Seller View)
-        document.getElementById('add-book-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            const newBook = {
-                id: Date.now(), // Temporary ID, reassigned in loadBooks
-                title: formData.get('title'),
-                description: formData.get('description'),
-                price: parseFloat(formData.get('price')),
-                image: formData.get('image') || 'https://via.placeholder.com/150'
-            };
-
-            let books = JSON.parse(localStorage.getItem('books') || '[]');
-            books.push(newBook);
-            localStorage.setItem('books', JSON.stringify(books));
-
-            alert('Book added successfully!');
-            this.reset();
-
-            // Refresh Customer View to show new book
-            loadBooks();
-        });
-
-        // Load and display requests in Seller View
-        function loadRequests() {
-            const requestTableBody = document.getElementById('request-table-body');
-            requestTableBody.innerHTML = '';
-            const selectedCity = document.getElementById('city-filter').value;
-            const requests = JSON.parse(localStorage.getItem('requests') || '[]');
-            requests.forEach(request => {
-                const row = document.createElement('tr');
-                if (selectedCity && request.location === selectedCity) {
-                    row.className = 'highlight';
-                }
-                row.innerHTML = `
-                    <td>${request.bookId}</td>
-                    <td>${request.customerName}</td>
-                    <td>${request.contact}</td>
-                    <td>${request.location}</td>
-                    <td>${request.status}</td>
-                    <td>
-                        <button class="accept-btn" onclick="updateRequestStatus(${request.id}, 'accepted')">Accept</button>
-                        <button class="ignore-btn" onclick="updateRequestStatus(${request.id}, 'ignored')">Ignore</button>
-                    </td>
-                `;
-                requestTableBody.appendChild(row);
-            });
-        }
-
-        // Update request status
-        function updateRequestStatus(requestId, status) {
-            let requests = JSON.parse(localStorage.getItem('requests') || '[]');
-            requests = requests.map(request => {
-                if (request.id === requestId) {
-                    return { ...request, status };
-                }
-                return request;
-            });
-            localStorage.setItem('requests', JSON.stringify(requests));
-            loadRequests();
-            alert(`Request ${status}!`);
-        }
-
-        // Initialize Customer View
-        document.addEventListener('DOMContentLoaded', () => {
-            loadBooks();
-        });
-    </script>
+        </script>
 </body>
 </html>
