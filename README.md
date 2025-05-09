@@ -74,10 +74,7 @@ Implement search functionality for books.
 Enhance styling with more animations or a theme toggle (light/dark mode).
 Add support for more languages and currencies.
 
-Author
 
-Sabayos (GitHub: sabayos)
 Project timeline: May 5–11, 2025
 
-License
-This project is open-source and available under the MIT License.
+
